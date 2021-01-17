@@ -9,12 +9,13 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var covidViewModel: CovidViewModel
+    private val covidViewModel: CovidViewModel by lazy {
+        CovidViewModel(application)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        covidViewModel = CovidViewModel(application)
     }
 
     override fun onStart() {
